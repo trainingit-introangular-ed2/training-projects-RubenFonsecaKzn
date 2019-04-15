@@ -10,7 +10,11 @@ const routes: Routes = [
     component: ProjectsComponent,
     children: [
       {
-        path: 'viewer-project/:id',
+        path: 'projects',
+        component: ProjectsComponent
+      },
+      {
+        path: 'viewer-project/:id/:name',
         component: ViewerProjectComponent
       },
       {
@@ -21,8 +25,8 @@ const routes: Routes = [
   }
 ];
 
-@NgModule( {
-  imports: [RouterModule.forChild( routes )],
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
-} )
-export class ProjectsRoutingModule { }
+})
+export class ProjectsRoutingModule {}

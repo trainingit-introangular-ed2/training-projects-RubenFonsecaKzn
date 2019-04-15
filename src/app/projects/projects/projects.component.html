@@ -1,7 +1,15 @@
-<header class="secondmenu">
-  <a routerLink="viewer-project"
-     class="button"> Viewer </a>
-  <a routerLink="new-project"
-     class="button"> New </a>
-</header>
-<router-outlet></router-outlet>
+<form [ngClass]="">
+  <fieldset>
+    <legend>Projects <a routerLink="new-project"
+         class="button"> New </a></legend>
+    <router-outlet></router-outlet>
+    <section>
+      <ul *ngIf="projects.length>0; else empty">
+        <li *ngFor="let project of projects">
+          <a routerLink="viewer-project/{{project.id}}/{{project.name}}">{{project.name}}</a>
+        </li>
+      </ul>
+      <ng-template #empty><i>No data yet</i></ng-template>
+    </section>
+  </fieldset>
+</form>

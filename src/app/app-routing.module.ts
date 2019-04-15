@@ -10,11 +10,10 @@ const routes: Routes = [
     path: 'projects',
     loadChildren: './projects/projects.module#ProjectsModule'
   }
-
 ];
 
-@NgModule( {
-  imports: [RouterModule.forRoot( routes )],
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-} )
-export class AppRoutingModule { }
+})
+export class AppRoutingModule {}

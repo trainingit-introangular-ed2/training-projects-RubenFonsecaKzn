@@ -1,20 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-.button {
-    width: 115px;
-    height: 25px;
-    background: #4E9CAF;
-    padding: 10px;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
+header {
+  margin-bottom: 20px;
 }
-.button:hover{
-    background: rgb(35, 105, 117); 
+
+html,
+body {
+  height: 100%;
 }
-.secondmenu{
-    margin-top: 20px;
-    margin-left: 90px;
-    margin-bottom: 30px;
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 60px;
+}
+
+.footer {
+  position: relative;
+  margin-top: -60px;
+  height: 60px;
+  clear: both;
+  padding-top: 20px;
+  background-color: #343a40;
+  color: white;
 }

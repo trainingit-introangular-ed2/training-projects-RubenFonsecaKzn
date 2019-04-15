@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-projects',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
+  public projects = environment.projects;
 
-  constructor() { }
+  public project = { id: '', name: '' };
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
