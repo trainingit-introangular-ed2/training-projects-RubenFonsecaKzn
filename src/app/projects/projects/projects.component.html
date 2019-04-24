@@ -1,15 +1,6 @@
-<form [ngClass]="">
-  <fieldset>
-    <legend>Projects <a routerLink="new-project"
-         class="button"> New </a></legend>
-    <router-outlet></router-outlet>
-    <section>
-      <ul *ngIf="projects.length>0; else empty">
-        <li *ngFor="let project of projects">
-          <a routerLink="viewer-project/{{project.id}}/{{project.name}}">{{project.name}}</a>
-        </li>
-      </ul>
-      <ng-template #empty><i>No data yet</i></ng-template>
-    </section>
-  </fieldset>
-</form>
+<h1>Projects</h1>
+<p><a routerLink="new-project"
+     class="button"> New Project </a></p>
+<router-outlet></router-outlet>
+<app-filter-projects-form (FilterProjects)="OnFilterProjects($event)"></app-filter-projects-form>
+<app-projects-list [projects]='projects'></app-projects-list>

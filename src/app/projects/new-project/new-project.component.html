@@ -1,14 +1,2 @@
-<form>
-  <fieldset>
-    <section>
-      <label for="Name">Project Name:</label>
-      <input name="Name"
-             type="text"
-             [(ngModel)]="project.name"
-             placeholder="Project name" />
-      <input value="save"
-             type="submit"
-             (click)="saveProject()" />
-    </section>
-  </fieldset>
-</form>
+<app-new-project-form (SaveProject)="OnSaveProject($event)">
+</app-new-project-form>

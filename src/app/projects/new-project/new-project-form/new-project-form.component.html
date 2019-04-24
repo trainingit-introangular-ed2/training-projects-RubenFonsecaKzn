@@ -1,0 +1,14 @@
+<form>
+  <fieldset>
+    <section>
+      <label for="Name">Project Name:</label>
+      <input name="Name"
+             type="text"
+             [(ngModel)]="projectName"
+             placeholder="Project name" />
+      <input value="save"
+             type="submit"
+             (click)="SaveProject.emit(projectName)" />
+    </section>
+  </fieldset>
+</form>

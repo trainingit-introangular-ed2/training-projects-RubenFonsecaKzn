@@ -1,0 +1,15 @@
+<h2>Filter</h2>
+<form>
+  <fieldset>
+    <section>
+      <label for="Name">Name:</label>
+      <input name="Name"
+             type="text"
+             [(ngModel)]="projectName"
+             placeholder="Project name" />
+      <input value="Filter"
+             type="submit"
+             (click)="FilterProjects.emit(projectName)" />
+    </section>
+  </fieldset>
+</form>

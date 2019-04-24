@@ -7,14 +7,14 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./new-project.component.css']
 })
 export class NewProjectComponent implements OnInit {
-  public projectname = '';
   public project = { id: 0, name: '' };
   constructor() {}
 
   ngOnInit() {}
 
-  public saveProject() {
+  public OnSaveProject(projectName: string) {
     this.project.id = environment.projects.length;
+    this.project.name = projectName;
     environment.projects.push({ ...this.project });
   }
 }
