@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { ProjectsServiceService } from '../../services/services/projects-service.service';
 
 @Component({
   selector: 'app-new-project',
@@ -7,14 +7,11 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./new-project.component.css']
 })
 export class NewProjectComponent implements OnInit {
-  public project = { id: 0, name: '' };
-  constructor() {}
+  constructor(private projectService: ProjectsServiceService) {}
 
   ngOnInit() {}
 
   public OnSaveProject(projectName: string) {
-    this.project.id = environment.projects.length;
-    this.project.name = projectName;
-    environment.projects.push({ ...this.project });
+    this.projectService.create(projectName);
   }
 }

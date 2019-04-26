@@ -1,5 +1,7 @@
 export const environment = {
   appName: 'Training Projects',
   production: true,
-  projects: []
+  projects: [],
+  projectsServiceOption: 'HttpClient',
+  httpApi: ''
 };

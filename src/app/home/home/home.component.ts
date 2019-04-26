@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { ProjectsServiceService } from '../../services/services/projects-service.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,10 @@ import { environment } from '../../../environments/environment';
 export class HomeComponent implements OnInit {
   public projects = environment.projects;
 
-  constructor() {}
+  constructor(private projectService: ProjectsServiceService) {}
 
-  ngOnInit() {}
+  async ngOnInit() {
+    this.projects = await this.projectService.read();
+    environment.projects = this.projects;
+  }
 }

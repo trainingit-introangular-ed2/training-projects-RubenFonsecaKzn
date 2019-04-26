@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { ProjectsServiceService } from '../../services/services/projects-service.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,17 +8,20 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  public projects = environment.projects;
+  public projects;
   public project = { id: '', name: '' };
-  constructor() {}
+  constructor(private projectService: ProjectsServiceService) {}
 
-  ngOnInit() {}
+  async ngOnInit() {
+    this.projects = await this.projectService.read();
+    environment.projects = this.projects;
+  }
 
   public OnFilterProjects(projectName: string) {
     if (projectName === '') {
       this.projects = environment.projects;
     } else {
-      const filterProject = this.projects.filter(project => project.name === projectName);
+      const filterProject = environment.projects.filter(project => project.name === projectName);
       this.projects = filterProject;
     }
   }
