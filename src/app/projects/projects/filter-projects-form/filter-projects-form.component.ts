@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-filter-projects-form',
@@ -8,8 +9,17 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class FilterProjectsFormComponent implements OnInit {
   @Output() public projectName: string;
   @Output() public FilterProjects = new EventEmitter<string>();
+  public formGroup: FormGroup;
 
-  constructor() {}
+  constructor(private formBuilder: FormBuilder) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.BuildForm();
+  }
+
+  private BuildForm() {
+    this.formGroup = this.formBuilder.group({
+      Name: ['', []]
+    });
+  }
 }

@@ -14,7 +14,9 @@ export class ProjectsComponent implements OnInit {
 
   async ngOnInit() {
     this.projects = await this.projectService.read();
-    environment.projects = this.projects;
+    if (this.projects != null) {
+      environment.projects = this.projects;
+    }
   }
 
   public OnFilterProjects(projectName: string) {

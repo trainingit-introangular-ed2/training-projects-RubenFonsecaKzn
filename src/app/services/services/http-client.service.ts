@@ -17,10 +17,17 @@ export class HttpClientService implements ProjectsServiceService {
   constructor() {}
 
   public create(projectName: string) {
-    this.project.id = environment.projects.length;
+    if (environment.projects != null) {
+      this.project.id = environment.projects.length;
+    }
     this.project.name = projectName;
     this.httpClient.post(this.urlapi, this.project).subscribe();
-    environment.projects.push({ ...this.project });
+
+    if (environment.projects != null) {
+      environment.projects.push({ ...this.project });
+    } else {
+      environment.projects = [this.project];
+    }
   }
 
   async read(): Promise<any> {

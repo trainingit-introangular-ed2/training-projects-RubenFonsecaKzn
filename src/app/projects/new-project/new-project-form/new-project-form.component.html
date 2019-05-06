@@ -1,13 +1,14 @@
-<form>
+<form [formGroup]="formGroup">
   <fieldset>
     <section>
       <label for="Name">Project Name:</label>
       <input name="Name"
-             type="text"
+             formControlName="Name"
              [(ngModel)]="projectName"
-             placeholder="Project name" />
+             type="text" />
       <input value="save"
              type="submit"
+             [disabled]="formGroup.invalid"
              (click)="SaveProject.emit(projectName)" />
     </section>
   </fieldset>

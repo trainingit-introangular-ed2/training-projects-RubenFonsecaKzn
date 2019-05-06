@@ -1,14 +1,15 @@
 <h2>Filter</h2>
-<form>
+<form [formGroup]="formGroup">
   <fieldset>
     <section>
       <label for="Name">Name:</label>
       <input name="Name"
-             type="text"
+             formControlName="Name"
              [(ngModel)]="projectName"
-             placeholder="Project name" />
-      <input value="Filter"
+             type="text" />
+      <input value="save"
              type="submit"
+             [disabled]="formGroup.invalid"
              (click)="FilterProjects.emit(projectName)" />
     </section>
   </fieldset>
