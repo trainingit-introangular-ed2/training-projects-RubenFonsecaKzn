@@ -1,4 +1,8 @@
 <footer class="page-footer footer">
   <div class="text-center">© 2019 Copyright: Training projects
   </div>
+  <div class="text-center"
+       *ngFor="let note of notes$ | async;let last = last;let index = index">
+    <span *ngIf="last">Last message: {{note|json}}</span>
+  </div>
 </footer>

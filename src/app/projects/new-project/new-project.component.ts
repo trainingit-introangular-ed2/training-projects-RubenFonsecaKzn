@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StoreService } from '../../notifications/store.service';
 import { ProjectsServiceService } from '../../services/services/projects-service.service';
 
 @Component({
@@ -7,11 +8,12 @@ import { ProjectsServiceService } from '../../services/services/projects-service
   styleUrls: ['./new-project.component.css']
 })
 export class NewProjectComponent implements OnInit {
-  constructor(private projectService: ProjectsServiceService) {}
+  constructor(private projectService: ProjectsServiceService, private store: StoreService) {}
 
   ngOnInit() {}
 
   public OnSaveProject(projectName: string) {
     this.projectService.create(projectName);
+    this.store.dispathNotification('Created: ' + projectName);
   }
 }

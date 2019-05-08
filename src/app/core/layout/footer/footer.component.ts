@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { StoreService } from '../../../notifications/store.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  public notes$: Observable<any>;
 
-  constructor() { }
+  constructor(private store: StoreService) {}
 
   ngOnInit() {
+    this.notes$ = this.store.select$();
   }
-
 }

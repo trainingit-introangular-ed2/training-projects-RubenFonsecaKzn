@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { StoreService } from '../../notifications/store.service';
 import { ProjectsServiceService } from '../../services/services/projects-service.service';
 
 @Component({
@@ -10,10 +11,11 @@ import { ProjectsServiceService } from '../../services/services/projects-service
 export class ProjectsComponent implements OnInit {
   public projects;
   public project = { id: '', name: '' };
-  constructor(private projectService: ProjectsServiceService) {}
+  constructor(private projectService: ProjectsServiceService, private store: StoreService) {}
 
   async ngOnInit() {
     this.projects = await this.projectService.read();
+    this.store.dispathNotification('Read Projects');
     if (this.projects != null) {
       environment.projects = this.projects;
     }
